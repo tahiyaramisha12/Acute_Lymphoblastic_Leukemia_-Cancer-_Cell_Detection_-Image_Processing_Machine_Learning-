@@ -25,8 +25,6 @@ def preprocess_image(image_path):
     
     normalized = cv2.normalize(equalized, None, 0, 255, cv2.NORM_MINMAX)
     
-    edges = cv2.Canny(normalized, 100, 200)
-    
     return normalized
 
 for category, subcategories in categories.items():
