@@ -74,7 +74,7 @@ def extract_features_from_image(img):
     
     return features
 
-st.title("🩺 Blood Cancer Cell Detection")
+st.title("🩺 Acute Lymphoblastic Leukemia(Blood Cancer) Cell Detection")
 st.markdown("Upload a microscopic cell image to detect if it's normal or identify the cancer type.")
 
 with st.sidebar:
@@ -159,23 +159,6 @@ if uploaded_file is not None and model is not None:
             
             if prediction in severity_colors:
                 st.markdown(f"**Severity:** {severity_colors[prediction]} {prediction}")
-        
-        # Display all confidence scores
-        # if hasattr(model, 'predict_proba'):
-        #     st.markdown("---")
-        #     st.subheader("📊 Confidence Breakdown")
-            
-        #     # Create a DataFrame for confidence scores
-        #     import pandas as pd
-        #     confidence_data = []
-        #     for i, class_name in enumerate(label_encoder.classes_):
-        #         confidence_data.append({
-        #             'Class': class_name,
-        #             'Confidence': f"{probabilities[i]*100:.1f}%"
-        #         })
-            
-        #     confidence_df = pd.DataFrame(confidence_data)
-        #     st.dataframe(confidence_df, use_container_width=True)
 
 elif model is None:
     st.error("⚠️ Model not loaded. Please train the model first by running ml_model.py")
